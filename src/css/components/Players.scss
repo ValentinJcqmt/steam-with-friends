@@ -1,0 +1,52 @@
+@import '../abstracts/mixins.scss';
+@import '../abstracts/variables.scss';
+
+.Players{
+	border:solid 2px $color_primary_600;
+	border-radius: $border_radius;
+	padding:$main_padding;
+	display: flex;
+	flex-wrap: wrap;
+	gap:$main_padding;
+	.PlayerCard, &__add{
+		width: calc((100% - (3 * #{$main_padding})) / 4);
+	}
+	&__add{
+		border: dashed 2px $color_primary_600;
+		background-color: transparent;
+		height: 250px;
+		border-radius: $border_radius;
+		text-transform: uppercase;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		opacity:.7;
+		transition:.2s;
+		&:hover, &:focus-visible{
+			opacity:1;
+		}
+		&__icon{
+			display: inline-block;
+			position: relative;
+			width: 50%;
+			aspect-ratio: 1/1;
+			border-radius: 50%;
+			background-color: $color_primary_600;
+			&:before, &:after{
+				content:"";
+				width: 50%;
+				height: 10%;
+				background-color: $color_primary_700;
+				position:absolute;
+				top:50%;
+				left:50%;
+				translate:-50% -50%;
+				pointer-events: none;
+			}
+			&:before{
+				rotate:90deg;
+			}
+		}
+	}
+}

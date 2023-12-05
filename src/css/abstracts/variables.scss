@@ -1,0 +1,34 @@
+// Colors
+$color_primary_300: #ccdeed;
+$color_primary_400: #597c9a;
+$color_primary_500: #3e5c76;
+$color_primary_600: #1d2d44;
+$color_primary_700: #0d1321;
+
+$color_light: $color_primary_300;
+$color_dark: $color_primary_700;
+
+$color_error: #6b0f1a;
+$color_success: #015f2e;
+
+
+// Spacings
+$main_container: 1245px;
+$main_padding: 15px;
+
+
+// $icons: 'email', 'linkedin', 'github', 'instagram';
+$icons: '';
+
+$border_radius: 6px;
+
+// Breakpoints
+$min-xs: 480px;
+$max-xs: 767px;
+$min-sm: 768px;
+$max-sm: 991px;
+$min-md: 992px;
+$max-md: 1199px;
+$min-lg: 1200px;
+$max-lg: 1399px;
+$min-bg: 1400px;

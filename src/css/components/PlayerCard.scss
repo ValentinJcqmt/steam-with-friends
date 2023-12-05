@@ -1,0 +1,95 @@
+@import '../abstracts/variables.scss';
+
+.PlayerCard{
+	position:relative;
+	background-color: $color_primary_600;
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding:$main_padding;
+	border-radius: $border_radius;
+	&__form{
+		display: flex;
+		flex-direction: column;
+		gap:10px;
+		&__label{
+			font-weight: 700;
+		}
+		&__search{
+			position: relative;
+			&__input{
+				background-color: $color_primary_400;
+				border:none;
+				padding:5px;
+				border-radius: $border_radius;
+				font-size: 18px;
+				color:$color_light;
+				width: 100%;
+				&::placeholder{
+					color:$color_primary_500;
+				}
+			}
+			&__submit{
+				position:absolute;
+				top:0;
+				right:0;
+				height: 100%;
+				aspect-ratio: 1/1;
+				border:none;
+				background-color: $color_primary_300;
+				cursor: pointer;
+				border-top-right-radius: $border_radius;
+				border-bottom-right-radius: $border_radius;
+				&:after{
+					content:"";
+					pointer-events: none;
+					width: 15px;
+					height: 15px;
+					mask-image: url('/check.svg');
+					mask-size: contain;
+					mask-position: center;
+					background-color: $color_dark;
+					position:absolute;
+					top:50%;
+					left:50%;
+					translate:-50% -50%;
+				}
+			}
+		}
+	}
+	&__remove{
+		position:absolute;
+		display: inline-block;
+		top:-7px;
+		right:-7px;
+		width: 30px;
+		height: 30px;
+		border-radius: 20px;
+		background-color: $color_error;
+		border:none;
+		cursor: pointer;
+		transition:.2s;
+		&:hover, &:focus-visible{
+			scale:1.15;
+		}
+		&:before, &:after{
+			content:"";
+			width: 60%;
+			height: 2px;
+			background-color: $color_light;
+			position:absolute;
+			top:50%;
+			left:50%;
+			translate:-50% -50%;
+			pointer-events: none;
+		}
+		&:before{
+			rotate:45deg;
+		}
+		&:after{
+			rotate:-45deg;
+		}
+	}
+}
