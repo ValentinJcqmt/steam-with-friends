@@ -1,0 +1,75 @@
+@import '../abstracts/variables.scss';
+
+@mixin wrapper($width: $container_main, $padding: $container_padding){
+	max-width: $width;
+	margin-inline: auto;
+	width: 100%;
+	@if $padding != 0 {
+		padding-inline: $padding;
+	}
+}
+
+@mixin desktop {
+	@media (min-width: $min-lg) {
+		@content;
+	}
+}
+
+@mixin laptop {
+	@media (min-width: $min-md) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (min-width: $min-sm) {
+		@content;
+	}
+}
+
+@mixin thinScrollbar($bar_color: $color_light){
+	overflow-y: auto;
+	scrollbar-color: $bar_color transparent;
+	scrollbar-width: thin;
+	&::-webkit-scrollbar-track {
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	&::-webkit-scrollbar {
+		width: 14px;
+		height: 8px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: $bar_color;
+		border-radius: 999999px;
+		border:solid 5px transparent;
+		background-clip: padding-box;
+	}
+}
+
+@mixin hoverUnderline($botPos: 0px, $revert: false){
+	background-size: 201% 1px;
+	background-repeat: repeat-x;
+	display:inline;
+	background-position: right bottom $botPos;
+	text-decoration: none;
+	cursor:pointer;
+	transition:.2s;
+	&:hover, &:focus-visible{
+		text-decoration: none;
+	}
+	@if($revert){
+		background-image: linear-gradient(to right, transparent 49.8%, $color_primary 49.8%);
+		background-position: left bottom $botPos;
+		&:hover, &:focus-visible{
+			background-position: right bottom $botPos;
+		}
+	}
+	@else {
+		background-image: linear-gradient(to right,$color_primary 49.8%,transparent 49.8%);
+		background-position: right bottom $botPos;
+		&:hover, &:focus-visible{
+			background-position: left bottom $botPos;
+		}
+	}
+}

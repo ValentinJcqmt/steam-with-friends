@@ -1,0 +1,21 @@
+@import '../abstracts/variables.scss';
+@import '../abstracts/mixins';
+
+.errorPage{
+	@include wrapper($container_main);
+	display: flex;
+	flex-direction: column;
+	gap:20px;
+	align-items: center;
+	padding-block: 50px;
+	&__message{
+		max-width: 100%;
+		pre{
+			padding:10px;
+			background-color:$color_error_100;
+			color:$color_error_500;
+			border-radius: 10px;
+			overflow: auto;
+		}
+	}
+}

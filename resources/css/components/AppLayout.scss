@@ -1,0 +1,20 @@
+@import '../abstracts/variables.scss';
+@import '../abstracts/mixins.scss';
+
+.appLayout{
+	display:flex;
+	flex-direction: column;
+	min-height: calc(100vh - #{$header_height_mobile});
+	background-color: $color_primary;
+	@include laptop{
+		min-height: calc(100vh - #{$header_height});
+	}
+	&.lightBgd{
+		background-color: $color_light;
+	}
+	&__content{
+		flex-grow: 1;
+		display: flex;
+		justify-content: center;
+	}
+}
