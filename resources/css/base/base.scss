@@ -1,0 +1,97 @@
+
+@import '../abstracts/variables.scss';
+@import '../abstracts/mixins.scss';
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+*::selection{
+	color:$color_dark;
+	background-color: $color_primary;
+}
+
+html{
+	@include thinScrollbar;
+	scroll-behavior: smooth;
+	background-color: $color_dark;
+}
+
+html, body{
+    scroll-behavior: smooth;
+	font-family: $font_primary;
+	color:$color_primary;
+}
+
+.sr-only{
+    border: 0;
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+}
+
+.skip-links{
+	opacity:0;
+	height:0;
+	overflow:hidden;
+	margin:0;
+	list-style: none;
+	&:focus{
+		opacity:1;
+		height:auto;
+	}
+}
+
+//Selectors :focus-within should be separated
+//for compatibility with Edge and IE11
+.skip-links:focus-within{
+	opacity:1;
+	height:auto;
+}
+
+ul{
+	li{
+		margin-block: 5px;
+		padding-left:20px;
+		position:relative;
+		&:before{
+			content:"";
+			position:absolute;
+			top:7px;
+			left:6px;
+			width: 6px;
+			height: 6px;
+			border-radius: 6px;
+			background-color: currentColor;
+		}
+	}
+}
+
+main{
+	@include wrapper;
+	padding-block:30px;
+	display: flex;
+	flex-direction: column;
+	gap:30px;
+}
+
+
+img{
+	max-width: 100%;
+	height:auto;
+}
+
+picture{
+	display:inline-block;
+	img{
+		display: block;
+	}
+}

@@ -1,21 +1,19 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import sass from 'sass'
-import autoprefixer from 'autoprefixer'
 
-// https://vitejs.dev/config/
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+import react from '@vitejs/plugin-react';
+import autoprefixer from 'autoprefixer';
+
 export default defineConfig({
-  plugins: [react()],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        implementation: sass,
-      },
-    },
-	postcss: {
-		plugins: [
-			autoprefixer({})
-		]
+    plugins: [
+		laravel('resources/js/app.jsx'),
+		react(),
+    ],
+	css: {
+		postcss: {
+			plugins: [
+				autoprefixer({})
+			]
+		}
 	}
-  },
-})
+});
